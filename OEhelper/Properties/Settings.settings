@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OEHelper.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="NokiaComPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ORISid" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="labelWorkingDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.</Value>
+    </Setting>
+    <Setting Name="activeTab" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="organizerIdentificationL1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tělovýchovná jednota Turnov z.s.</Value>
+    </Setting>
+    <Setting Name="ORISSecKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="rentSIFee" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="organizerIdentificationL2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Skálova 207, Turnov, 511 01</Value>
+    </Setting>
+    <Setting Name="organizerIdentificationL3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">IČ: 15045528</Value>
+    </Setting>
+    <Setting Name="eventName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Jméno závodu pro doklady - DD.MM.YYYY</Value>
+    </Setting>
+    <Setting Name="eventDate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Datum na pokladni lístek</Value>
+    </Setting>
+    <Setting Name="organizerIdentificationAbbr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Zkratka klubu</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
