@@ -33,6 +33,19 @@
             this.openFileDialogPoplatky = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogSMS = new System.Windows.Forms.OpenFileDialog();
             this.tabPoplatky = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tbEventDate = new System.Windows.Forms.TextBox();
+            this.tbOrganizerIdentificationAbbr = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbEventName = new System.Windows.Forms.TextBox();
+            this.tbOrganizerIdentificationLine3 = new System.Windows.Forms.TextBox();
+            this.tbOrganizerIdentificationLine2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.nudRentSIFee = new System.Windows.Forms.NumericUpDown();
             this.buttonDownloadRunners = new System.Windows.Forms.Button();
@@ -61,10 +74,12 @@
             this.textBoxLog = new System.Windows.Forms.TextBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabLabels = new System.Windows.Forms.TabPage();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.cbClubShortOnly = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
             this.nudCeremonyPlaces = new System.Windows.Forms.NumericUpDown();
-            this.buttonLoadCategoriesCeremony = new System.Windows.Forms.Button();
             this.buttonPokladna = new System.Windows.Forms.Button();
             this.buttonLabelsPrint = new System.Windows.Forms.Button();
             this.buttonLabelsSelectNone = new System.Windows.Forms.Button();
@@ -73,6 +88,7 @@
             this.buttonDownloadClubNames = new System.Windows.Forms.Button();
             this.buttonLoadFees = new System.Windows.Forms.Button();
             this.buttonDownloadFees = new System.Windows.Forms.Button();
+            this.buttonLoadCategoriesCeremony = new System.Windows.Forms.Button();
             this.tbOrisSecKey = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.buttonDownloadEventInfo = new System.Windows.Forms.Button();
@@ -83,23 +99,11 @@
             this.nudOrisID = new System.Windows.Forms.NumericUpDown();
             this.folderBrowserDialogWD = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialogXML = new System.Windows.Forms.OpenFileDialog();
-            this.tbOrganizerIdentificationLine2 = new System.Windows.Forms.TextBox();
-            this.tbOrganizerIdentificationLine3 = new System.Windows.Forms.TextBox();
-            this.tbEventName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.tbOrganizerIdentificationAbbr = new System.Windows.Forms.TextBox();
-            this.tbEventDate = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.rbOE2010 = new System.Windows.Forms.RadioButton();
+            this.rbORIS = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
             this.tabPoplatky.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudRentSIFee)).BeginInit();
             this.tabLog.SuspendLayout();
@@ -108,6 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCeremonyPlaces)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLabels)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOrisID)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialogOOR
@@ -124,6 +129,7 @@
             // 
             // tabPoplatky
             // 
+            this.tabPoplatky.Controls.Add(this.panel1);
             this.tabPoplatky.Controls.Add(this.label21);
             this.tabPoplatky.Controls.Add(this.label17);
             this.tabPoplatky.Controls.Add(this.tbEventDate);
@@ -167,10 +173,122 @@
             this.tabPoplatky.Text = "Poplatky";
             this.tabPoplatky.UseVisualStyleBackColor = true;
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(497, 159);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(126, 13);
+            this.label21.TabIndex = 35;
+            this.label21.Text = "export_entry_idevent.csv";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(8, 286);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(152, 13);
+            this.label17.TabIndex = 34;
+            this.label17.Text = "Datum závodu (na pokl. lístek)";
+            // 
+            // tbEventDate
+            // 
+            this.tbEventDate.Location = new System.Drawing.Point(164, 283);
+            this.tbEventDate.Name = "tbEventDate";
+            this.tbEventDate.Size = new System.Drawing.Size(84, 20);
+            this.tbEventDate.TabIndex = 33;
+            this.tbEventDate.TextChanged += new System.EventHandler(this.tbEventDate_TextChanged);
+            // 
+            // tbOrganizerIdentificationAbbr
+            // 
+            this.tbOrganizerIdentificationAbbr.Location = new System.Drawing.Point(423, 318);
+            this.tbOrganizerIdentificationAbbr.Name = "tbOrganizerIdentificationAbbr";
+            this.tbOrganizerIdentificationAbbr.Size = new System.Drawing.Size(55, 20);
+            this.tbOrganizerIdentificationAbbr.TabIndex = 32;
+            this.tbOrganizerIdentificationAbbr.TextChanged += new System.EventHandler(this.tbOrganizerIdentificationAbbr_TextChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(444, 15);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(31, 13);
+            this.label16.TabIndex = 31;
+            this.label16.Text = "nebo";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(444, 138);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(31, 13);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "nebo";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(131, 373);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(20, 13);
+            this.label14.TabIndex = 29;
+            this.label14.Text = "ř.3";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(131, 347);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(20, 13);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "ř.2";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 321);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(143, 13);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Pořadatel (na dokladech) ř.1";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 260);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(150, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Jméno závodu (na dokladech)";
+            // 
+            // tbEventName
+            // 
+            this.tbEventName.Location = new System.Drawing.Point(164, 257);
+            this.tbEventName.Name = "tbEventName";
+            this.tbEventName.Size = new System.Drawing.Size(314, 20);
+            this.tbEventName.TabIndex = 25;
+            this.tbEventName.TextChanged += new System.EventHandler(this.tbEventName_TextChanged);
+            // 
+            // tbOrganizerIdentificationLine3
+            // 
+            this.tbOrganizerIdentificationLine3.Location = new System.Drawing.Point(164, 370);
+            this.tbOrganizerIdentificationLine3.Name = "tbOrganizerIdentificationLine3";
+            this.tbOrganizerIdentificationLine3.Size = new System.Drawing.Size(314, 20);
+            this.tbOrganizerIdentificationLine3.TabIndex = 24;
+            this.tbOrganizerIdentificationLine3.TextChanged += new System.EventHandler(this.tbOrganizerIdentificationLine3_TextChanged);
+            // 
+            // tbOrganizerIdentificationLine2
+            // 
+            this.tbOrganizerIdentificationLine2.Location = new System.Drawing.Point(164, 344);
+            this.tbOrganizerIdentificationLine2.Name = "tbOrganizerIdentificationLine2";
+            this.tbOrganizerIdentificationLine2.Size = new System.Drawing.Size(314, 20);
+            this.tbOrganizerIdentificationLine2.TabIndex = 23;
+            this.tbOrganizerIdentificationLine2.TextChanged += new System.EventHandler(this.tbOrganizerIdentificationLine2_TextChanged);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(332, 146);
+            this.label3.Location = new System.Drawing.Point(332, 185);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 22;
@@ -178,7 +296,7 @@
             // 
             // nudRentSIFee
             // 
-            this.nudRentSIFee.Location = new System.Drawing.Point(398, 144);
+            this.nudRentSIFee.Location = new System.Drawing.Point(398, 183);
             this.nudRentSIFee.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -191,7 +309,7 @@
             // 
             // buttonDownloadRunners
             // 
-            this.buttonDownloadRunners.Location = new System.Drawing.Point(500, 93);
+            this.buttonDownloadRunners.Location = new System.Drawing.Point(500, 133);
             this.buttonDownloadRunners.Name = "buttonDownloadRunners";
             this.buttonDownloadRunners.Size = new System.Drawing.Size(238, 23);
             this.buttonDownloadRunners.TabIndex = 20;
@@ -201,7 +319,7 @@
             // 
             // tbOrganizerIdentificationLine1
             // 
-            this.tbOrganizerIdentificationLine1.Location = new System.Drawing.Point(164, 279);
+            this.tbOrganizerIdentificationLine1.Location = new System.Drawing.Point(164, 318);
             this.tbOrganizerIdentificationLine1.Name = "tbOrganizerIdentificationLine1";
             this.tbOrganizerIdentificationLine1.Size = new System.Drawing.Size(253, 20);
             this.tbOrganizerIdentificationLine1.TabIndex = 19;
@@ -212,7 +330,7 @@
             this.cb_downloadClubInfoFromORIS.AutoSize = true;
             this.cb_downloadClubInfoFromORIS.Checked = true;
             this.cb_downloadClubInfoFromORIS.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_downloadClubInfoFromORIS.Location = new System.Drawing.Point(11, 189);
+            this.cb_downloadClubInfoFromORIS.Location = new System.Drawing.Point(11, 228);
             this.cb_downloadClubInfoFromORIS.Name = "cb_downloadClubInfoFromORIS";
             this.cb_downloadClubInfoFromORIS.Size = new System.Drawing.Size(305, 17);
             this.cb_downloadClubInfoFromORIS.TabIndex = 18;
@@ -232,7 +350,7 @@
             // cb_onlyBillWithRunner
             // 
             this.cb_onlyBillWithRunner.AutoSize = true;
-            this.cb_onlyBillWithRunner.Location = new System.Drawing.Point(11, 164);
+            this.cb_onlyBillWithRunner.Location = new System.Drawing.Point(11, 203);
             this.cb_onlyBillWithRunner.Name = "cb_onlyBillWithRunner";
             this.cb_onlyBillWithRunner.Size = new System.Drawing.Size(145, 17);
             this.cb_onlyBillWithRunner.TabIndex = 16;
@@ -242,7 +360,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(8, 119);
+            this.label30.Location = new System.Drawing.Point(8, 159);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(417, 13);
             this.label30.TabIndex = 15;
@@ -251,7 +369,7 @@
             // 
             // buttonComputeFees
             // 
-            this.buttonComputeFees.Location = new System.Drawing.Point(247, 357);
+            this.buttonComputeFees.Location = new System.Drawing.Point(247, 396);
             this.buttonComputeFees.Name = "buttonComputeFees";
             this.buttonComputeFees.Size = new System.Drawing.Size(231, 23);
             this.buttonComputeFees.TabIndex = 14;
@@ -271,7 +389,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(331, 98);
+            this.label11.Location = new System.Drawing.Point(331, 138);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(61, 13);
             this.label11.TabIndex = 12;
@@ -335,7 +453,7 @@
             // labelRunnerFeeCount
             // 
             this.labelRunnerFeeCount.AutoSize = true;
-            this.labelRunnerFeeCount.Location = new System.Drawing.Point(404, 98);
+            this.labelRunnerFeeCount.Location = new System.Drawing.Point(404, 138);
             this.labelRunnerFeeCount.Name = "labelRunnerFeeCount";
             this.labelRunnerFeeCount.Size = new System.Drawing.Size(13, 13);
             this.labelRunnerFeeCount.TabIndex = 5;
@@ -372,7 +490,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 98);
+            this.label6.Location = new System.Drawing.Point(8, 138);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(141, 13);
             this.label6.TabIndex = 1;
@@ -380,7 +498,7 @@
             // 
             // buttonLoadClubStartlist
             // 
-            this.buttonLoadClubStartlist.Location = new System.Drawing.Point(247, 93);
+            this.buttonLoadClubStartlist.Location = new System.Drawing.Point(247, 133);
             this.buttonLoadClubStartlist.Name = "buttonLoadClubStartlist";
             this.buttonLoadClubStartlist.Size = new System.Drawing.Size(75, 23);
             this.buttonLoadClubStartlist.TabIndex = 0;
@@ -459,6 +577,33 @@
             this.tabLabels.Text = "Štítky";
             this.tabLabels.UseVisualStyleBackColor = true;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(720, 67);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(110, 13);
+            this.label22.TabIndex = 22;
+            this.label22.Text = "tiskárny štítků Brother";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(8, 12);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(245, 13);
+            this.label20.TabIndex = 21;
+            this.label20.Text = "štítky na obálky dle ORISu - API getEventBalance";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(430, 88);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(290, 13);
+            this.label19.TabIndex = 20;
+            this.label19.Text = "štítky na ceny, zvol počet vyhlašovaných a načti Event Info";
+            // 
             // cbClubShortOnly
             // 
             this.cbClubShortOnly.AutoSize = true;
@@ -494,16 +639,6 @@
             0,
             0,
             0});
-            // 
-            // buttonLoadCategoriesCeremony
-            // 
-            this.buttonLoadCategoriesCeremony.Location = new System.Drawing.Point(562, 35);
-            this.buttonLoadCategoriesCeremony.Name = "buttonLoadCategoriesCeremony";
-            this.buttonLoadCategoriesCeremony.Size = new System.Drawing.Size(122, 23);
-            this.buttonLoadCategoriesCeremony.TabIndex = 16;
-            this.buttonLoadCategoriesCeremony.Text = "Load Event Info";
-            this.buttonLoadCategoriesCeremony.UseVisualStyleBackColor = true;
-            this.buttonLoadCategoriesCeremony.Click += new System.EventHandler(this.buttonLoadCategories_Click);
             // 
             // buttonPokladna
             // 
@@ -592,6 +727,16 @@
             this.buttonDownloadFees.UseVisualStyleBackColor = true;
             this.buttonDownloadFees.Click += new System.EventHandler(this.buttonDownloadFees_Click);
             // 
+            // buttonLoadCategoriesCeremony
+            // 
+            this.buttonLoadCategoriesCeremony.Location = new System.Drawing.Point(562, 35);
+            this.buttonLoadCategoriesCeremony.Name = "buttonLoadCategoriesCeremony";
+            this.buttonLoadCategoriesCeremony.Size = new System.Drawing.Size(122, 23);
+            this.buttonLoadCategoriesCeremony.TabIndex = 16;
+            this.buttonLoadCategoriesCeremony.Text = "Load Event Info";
+            this.buttonLoadCategoriesCeremony.UseVisualStyleBackColor = true;
+            this.buttonLoadCategoriesCeremony.Click += new System.EventHandler(this.buttonLoadCategories_Click);
+            // 
             // tbOrisSecKey
             // 
             this.tbOrisSecKey.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -677,109 +822,6 @@
             this.openFileDialogXML.FileName = "openFileDialogXML";
             this.openFileDialogXML.Filter = "XML|*.xml";
             // 
-            // tbOrganizerIdentificationLine2
-            // 
-            this.tbOrganizerIdentificationLine2.Location = new System.Drawing.Point(164, 305);
-            this.tbOrganizerIdentificationLine2.Name = "tbOrganizerIdentificationLine2";
-            this.tbOrganizerIdentificationLine2.Size = new System.Drawing.Size(314, 20);
-            this.tbOrganizerIdentificationLine2.TabIndex = 23;
-            this.tbOrganizerIdentificationLine2.TextChanged += new System.EventHandler(this.tbOrganizerIdentificationLine2_TextChanged);
-            // 
-            // tbOrganizerIdentificationLine3
-            // 
-            this.tbOrganizerIdentificationLine3.Location = new System.Drawing.Point(164, 331);
-            this.tbOrganizerIdentificationLine3.Name = "tbOrganizerIdentificationLine3";
-            this.tbOrganizerIdentificationLine3.Size = new System.Drawing.Size(314, 20);
-            this.tbOrganizerIdentificationLine3.TabIndex = 24;
-            this.tbOrganizerIdentificationLine3.TextChanged += new System.EventHandler(this.tbOrganizerIdentificationLine3_TextChanged);
-            // 
-            // tbEventName
-            // 
-            this.tbEventName.Location = new System.Drawing.Point(164, 218);
-            this.tbEventName.Name = "tbEventName";
-            this.tbEventName.Size = new System.Drawing.Size(314, 20);
-            this.tbEventName.TabIndex = 25;
-            this.tbEventName.TextChanged += new System.EventHandler(this.tbEventName_TextChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 221);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 13);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Jméno závodu (na dokladech)";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 282);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 13);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Pořadatel (na dokladech) ř.1";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(131, 308);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(20, 13);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "ř.2";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(131, 334);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(20, 13);
-            this.label14.TabIndex = 29;
-            this.label14.Text = "ř.3";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(444, 98);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(31, 13);
-            this.label15.TabIndex = 30;
-            this.label15.Text = "nebo";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(444, 15);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(31, 13);
-            this.label16.TabIndex = 31;
-            this.label16.Text = "nebo";
-            // 
-            // tbOrganizerIdentificationAbbr
-            // 
-            this.tbOrganizerIdentificationAbbr.Location = new System.Drawing.Point(423, 279);
-            this.tbOrganizerIdentificationAbbr.Name = "tbOrganizerIdentificationAbbr";
-            this.tbOrganizerIdentificationAbbr.Size = new System.Drawing.Size(55, 20);
-            this.tbOrganizerIdentificationAbbr.TabIndex = 32;
-            this.tbOrganizerIdentificationAbbr.TextChanged += new System.EventHandler(this.tbOrganizerIdentificationAbbr_TextChanged);
-            // 
-            // tbEventDate
-            // 
-            this.tbEventDate.Location = new System.Drawing.Point(164, 244);
-            this.tbEventDate.Name = "tbEventDate";
-            this.tbEventDate.Size = new System.Drawing.Size(84, 20);
-            this.tbEventDate.TabIndex = 33;
-            this.tbEventDate.TextChanged += new System.EventHandler(this.tbEventDate_TextChanged);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(8, 247);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(152, 13);
-            this.label17.TabIndex = 34;
-            this.label17.Text = "Datum závodu (na pokl. lístek)";
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -789,41 +831,47 @@
             this.label18.TabIndex = 31;
             this.label18.Text = "nebo";
             // 
-            // label19
+            // rbOE2010
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(430, 88);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(290, 13);
-            this.label19.TabIndex = 20;
-            this.label19.Text = "štítky na ceny, zvol počet vyhlašovaných a načti Event Info";
+            this.rbOE2010.AutoSize = true;
+            this.rbOE2010.Checked = true;
+            this.rbOE2010.Location = new System.Drawing.Point(328, 5);
+            this.rbOE2010.Name = "rbOE2010";
+            this.rbOE2010.Size = new System.Drawing.Size(64, 17);
+            this.rbOE2010.TabIndex = 36;
+            this.rbOE2010.TabStop = true;
+            this.rbOE2010.Text = "OE2010";
+            this.rbOE2010.UseVisualStyleBackColor = true;
+            this.rbOE2010.CheckedChanged += new System.EventHandler(this.rbOE2010_CheckedChanged);
             // 
-            // label20
+            // rbORIS
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(8, 12);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(245, 13);
-            this.label20.TabIndex = 21;
-            this.label20.Text = "štítky na obálky dle ORISu - API getEventBalance";
+            this.rbORIS.AutoSize = true;
+            this.rbORIS.Location = new System.Drawing.Point(404, 5);
+            this.rbORIS.Name = "rbORIS";
+            this.rbORIS.Size = new System.Drawing.Size(281, 17);
+            this.rbORIS.TabIndex = 37;
+            this.rbORIS.Text = "ORIS (vícedenní zatím nejsou z ORISu podporovány)";
+            this.rbORIS.UseVisualStyleBackColor = true;
             // 
-            // label21
+            // panel1
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(497, 119);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(126, 13);
-            this.label21.TabIndex = 35;
-            this.label21.Text = "export_entry_idevent.csv";
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.rbOE2010);
+            this.panel1.Controls.Add(this.rbORIS);
+            this.panel1.Location = new System.Drawing.Point(3, 106);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(727, 21);
+            this.panel1.TabIndex = 38;
             // 
-            // label22
+            // label23
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(720, 67);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(110, 13);
-            this.label22.TabIndex = 22;
-            this.label22.Text = "tiskárny štítků Brother";
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(5, 7);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(199, 13);
+            this.label23.TabIndex = 38;
+            this.label23.Text = "Přihlášky (závodníci) jsou generované z ";
             // 
             // Form1
             // 
@@ -842,7 +890,7 @@
             this.Controls.Add(this.textBoxWorkingDir);
             this.Controls.Add(this.label2);
             this.Name = "Form1";
-            this.Text = "OEHelper by Maaca v 2019.1";
+            this.Text = "OEHelper by Maaca v 2019.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabPoplatky.ResumeLayout(false);
@@ -856,6 +904,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCeremonyPlaces)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLabels)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOrisID)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -935,6 +985,10 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.RadioButton rbOE2010;
+        private System.Windows.Forms.RadioButton rbORIS;
     }
 }
 

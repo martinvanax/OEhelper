@@ -16,7 +16,7 @@ namespace OEHelper
         public string Name { get; }
         public string RegCode { get; }
 
-        public oe2010Runner(string line, string oeType)
+        public oe2010Runner(string line, string oeType, bool fromOE)
         {
             /* TODO tady to chce dodelat aby volba sloubcu byla nastavitelna, pro jednodenni zavod to asi bude jinak */
             /*                                                                                                       10                                                               20                                     30                                                                                         40                                                                                          50                                                                             60                                                                            70                                                                                             80                                                                            */
@@ -49,27 +49,49 @@ namespace OEHelper
                 }
                 else
                 {
-                    ClubShort = parts[19].Replace("\"", string.Empty);
-                    Club = parts[20].Replace("\"", string.Empty);
-                    Fee = int.Parse(parts[49].Replace("\"", string.Empty), System.Globalization.NumberStyles.Any);
-                    if (parts[33] != "0")
+                    /*přihlášky z ORISU */
+                    if (!fromOE)
                     {
-                        SIRent = Convert.ToInt32(Properties.Settings.Default.rentSIFee);
+                        ClubShort = parts[19].Replace("\"", string.Empty);
+                        Club = parts[20].Replace("\"", string.Empty);
+                        Fee = int.Parse(parts[49].Replace("\"", string.Empty), System.Globalization.NumberStyles.Any);
+                        if (parts[48] == "X")
+                        {
+                            SIRent = Convert.ToInt32(Properties.Settings.Default.rentSIFee);
+                        }
+                        else
+                        {
+                            if (parts[33] != string.Empty)
+                            {
+                                if (parts[33] != "0")
+                                {
+                                    SIRent = Convert.ToInt32(Properties.Settings.Default.rentSIFee);
+                                }
+                                else
+                                {
+                                    SIRent = 0;
+                                }
+                            }
+                            else
+                            {
+                                SIRent = 0;
+                            }
+                        }
+
+                        Category = parts[25].Replace("\"", string.Empty);
+                        Name = parts[5].Replace("\"", string.Empty) + " " + parts[6].Replace("\"", string.Empty);
+                        RegCode = parts[4].Replace("\"", string.Empty);
                     }
                     else
-                    {
+                    {    /* přihlášky generované z OE */
+                        ClubShort = parts[23].Replace("\"", string.Empty);
+                        Club = parts[20].Replace("\"", string.Empty);
+                        Fee = int.Parse(parts[49].Replace("\"", string.Empty), System.Globalization.NumberStyles.Any);
                         SIRent = (parts[48] == "X") ? Convert.ToInt32(Properties.Settings.Default.rentSIFee) : 0;
+                        Category = parts[25].Replace("\"", string.Empty);
+                        Name = parts[5].Replace("\"", string.Empty) + " " + parts[6].Replace("\"", string.Empty);
+                        RegCode = parts[4].Replace("\"", string.Empty);
                     }
-                    Category = parts[25].Replace("\"", string.Empty); /* kat kratky */
-                    Name = parts[5].Replace("\"", string.Empty) + " " + parts[6].Replace("\"", string.Empty);
-                    RegCode = parts[4].Replace("\"", string.Empty);
-                    /*ClubShort = parts[23].Replace("\"", string.Empty);
-                    Club = parts[20].Replace("\"", string.Empty);
-                    Fee = int.Parse(parts[49].Replace("\"", string.Empty), System.Globalization.NumberStyles.Any);
-                    SIRent = (parts[48] == "X") ? Convert.ToInt32(Properties.Settings.Default.rentSIFee) : 0;
-                    Category = parts[25].Replace("\"", string.Empty);
-                    Name = parts[5].Replace("\"", string.Empty) + " " + parts[6].Replace("\"", string.Empty);
-                    RegCode = parts[4].Replace("\"", string.Empty);*/
                 }
             }
             else if ("OE0002" == oeType)

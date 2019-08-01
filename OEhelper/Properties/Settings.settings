@@ -38,5 +38,8 @@
     <Setting Name="organizerIdentificationAbbr" Type="System.String" Scope="User">
       <Value Profile="(Default)">Zkratka klubu</Value>
     </Setting>
+    <Setting Name="fromOE" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -85,6 +85,8 @@ namespace OEHelper
             tbOrganizerIdentificationLine3.Text = Properties.Settings.Default.organizerIdentificationL3;
             tbEventName.Text = Properties.Settings.Default.eventName;
             tbEventDate.Text = Properties.Settings.Default.eventDate;
+            rbOE2010.Checked = Properties.Settings.Default.fromOE;
+            rbORIS.Checked = !rbOE2010.Checked;
         }
         #region Vyuctovani poplatku
         List<string> obClubsShort = new List<string>();
@@ -175,7 +177,7 @@ namespace OEHelper
                             if ((oeType == "OE0001" && line.Split(';').Length >= 57)
                               ||(oeType == "OE0002" && line.Split(';').Length >= 108))
                             {
-                                runner = new oe2010Runner(line, oeType);
+                                runner = new oe2010Runner(line, oeType, Properties.Settings.Default.fromOE);
                                 if (runner.Name != "Vakant")
                                 {
                                     oe2010Runners.Add(runner);
@@ -1129,6 +1131,11 @@ namespace OEHelper
         private void tbEventDate_TextChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.eventDate = tbEventDate.Text;
+        }
+
+        private void rbOE2010_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.fromOE = rbOE2010.Checked;
         }
     }
 }
