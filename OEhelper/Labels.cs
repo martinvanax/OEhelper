@@ -18,11 +18,11 @@ namespace OEHelper
         public string Paid { get; set; }
         public string ToBePaid { get; set; }
        
-        public EnvelopeLabel(string clubId, string clubAbbr, string entry, string SI, string service, string total, string paid, string toBePaid)
+        public EnvelopeLabel(string clubId, string clubName, string clubAbbr, string entry, string SI, string service, string total, string paid, string toBePaid)
         {
             this.Select = false;
             this.ClubId = clubId;
-            this.Club = string.Empty;
+            this.Club = clubName;
             this.ClubAbbr = clubAbbr;
             this.Entry = entry;
             this.SI = SI;

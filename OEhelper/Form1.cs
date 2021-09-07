@@ -42,7 +42,19 @@ namespace OEHelper
         public Form1()
         {
             InitializeComponent();
+            //ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+            ServicePointManager.Expect100Continue = true;
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+            //ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback(AlwaysGoodCertificate);
 
+        }
+
+        private static bool AlwaysGoodCertificate(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors policyErrors)
+        {
+            return true;
         }
 
         private void Log(string text)
@@ -380,6 +392,11 @@ namespace OEHelper
                 kpt.printClubsOKHeader();
                 /* end kluby ok */
 
+                /* start přehled poplatku kluby ok */
+                TextWriter pptw = new StreamWriter(textBoxWorkingDir.Text + Path.DirectorySeparatorChar + "prehled_poplatku_" + nudOrisID.Value + ".csv");
+                pptw.WriteLine("Abbr;Club;Entry;SI;Service;Total;Paid;ToBePaid;");               
+                /* end prehled poplatku */
+
                 foreach (obClub club in obClubs)
                 {
                     List<oe2010Runner> clubRunners = oe2010Runners.FindAll(r => (r.ClubShort == club.ClubShort));
@@ -424,7 +441,8 @@ namespace OEHelper
                         pt.printBillOverview(club, clubRunners, clubSluzby, clubPlatby, out feeEntry, out feeSI, out feeService, out paid);
                         feeTotal = feeEntry + feeSI + feeService;
                         toBePaid = feeTotal - paid;
-                        envelopeLabels.Add(new EnvelopeLabel(string.Empty, club.ClubShort, feeEntry.ToString(), feeSI.ToString(), feeService.ToString(), feeTotal.ToString(), paid.ToString(), toBePaid.ToString()));
+                        envelopeLabels.Add(new EnvelopeLabel(string.Empty, club.Name, club.ClubShort, feeEntry.ToString(), feeSI.ToString(), feeService.ToString(), feeTotal.ToString(), paid.ToString(), toBePaid.ToString()));
+                        pptw.WriteLine(club.ClubShort + ";" + club.Name + ";" + feeEntry.ToString() + ";" +  feeSI.ToString() + ";" + feeService.ToString() + ";" + feeTotal.ToString() + ";" + paid.ToString() + ";" + toBePaid.ToString() + ";");
                         if (toBePaid != 0)
                         {
                             ppt.printCashBill(club, toBePaid); //original
@@ -464,6 +482,7 @@ namespace OEHelper
                 kdocument.Close();
                 kwriter.Close();
                 kfs.Close();
+                pptw.Close();
 
                 //writer.WriteLine("\n\n\nHotovo hura rezat\nVklady = " + totalVklad + "\nPujcovne = " + totalPujcovne + "\nSluzby = " + totalSluzby + "\nPlatby = " + totalPlatbyPrijate + "\nCelkem vybrano = " +(totalVklad + totalSluzby + totalPujcovne));
                 Cursor.Current = Cursors.Default;
@@ -573,6 +592,7 @@ namespace OEHelper
                     if (club.Name.StartsWith("Club"))
                     {
                         string clubId = club.SelectSingleNode("ClubID", nsmgr).InnerText;
+                        //TODOstring clubName = club.SelectSingleNode("ClubName", nsmgr).InnerText;
                         string clubAbbr = club.SelectSingleNode("ClubAbbr", nsmgr).InnerText;
                         string entry = club.SelectSingleNode("FeeEntry", nsmgr).InnerText;
                         string SI = club.SelectSingleNode("FeeSI", nsmgr).InnerText;
@@ -580,7 +600,7 @@ namespace OEHelper
                         string total = club.SelectSingleNode("FeeTotal", nsmgr).InnerText;
                         string paid = club.SelectSingleNode("Paid", nsmgr).InnerText;
                         string toBePaid = club.SelectSingleNode("ToBePaid", nsmgr).InnerText;
-                        envelopeLabels.Add(new EnvelopeLabel(clubId, clubAbbr, entry, SI, service, total, paid, toBePaid));
+                        envelopeLabels.Add(new EnvelopeLabel(clubId, string.Empty, clubAbbr, entry, SI, service, total, paid, toBePaid));
                     }
                     else
                     {

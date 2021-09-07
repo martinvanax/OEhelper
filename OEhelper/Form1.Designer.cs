@@ -33,6 +33,11 @@
             this.openFileDialogPoplatky = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogSMS = new System.Windows.Forms.OpenFileDialog();
             this.tabPoplatky = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cbOrisMultiday = new System.Windows.Forms.CheckBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.rbOE2010 = new System.Windows.Forms.RadioButton();
+            this.rbORIS = new System.Windows.Forms.RadioButton();
             this.label21 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.tbEventDate = new System.Windows.Forms.TextBox();
@@ -100,11 +105,8 @@
             this.folderBrowserDialogWD = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialogXML = new System.Windows.Forms.OpenFileDialog();
             this.label18 = new System.Windows.Forms.Label();
-            this.rbOE2010 = new System.Windows.Forms.RadioButton();
-            this.rbORIS = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label23 = new System.Windows.Forms.Label();
             this.tabPoplatky.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudRentSIFee)).BeginInit();
             this.tabLog.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -112,7 +114,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCeremonyPlaces)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLabels)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOrisID)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialogOOR
@@ -172,6 +173,59 @@
             this.tabPoplatky.TabIndex = 5;
             this.tabPoplatky.Text = "Poplatky";
             this.tabPoplatky.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cbOrisMultiday);
+            this.panel1.Controls.Add(this.label23);
+            this.panel1.Controls.Add(this.rbOE2010);
+            this.panel1.Controls.Add(this.rbORIS);
+            this.panel1.Location = new System.Drawing.Point(3, 106);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(780, 21);
+            this.panel1.TabIndex = 38;
+            // 
+            // cbOrisMultiday
+            // 
+            this.cbOrisMultiday.AutoSize = true;
+            this.cbOrisMultiday.Location = new System.Drawing.Point(692, 5);
+            this.cbOrisMultiday.Name = "cbOrisMultiday";
+            this.cbOrisMultiday.Size = new System.Drawing.Size(83, 17);
+            this.cbOrisMultiday.TabIndex = 39;
+            this.cbOrisMultiday.Text = "oris multiday";
+            this.cbOrisMultiday.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(5, 7);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(199, 13);
+            this.label23.TabIndex = 38;
+            this.label23.Text = "Přihlášky (závodníci) jsou generované z ";
+            // 
+            // rbOE2010
+            // 
+            this.rbOE2010.AutoSize = true;
+            this.rbOE2010.Checked = true;
+            this.rbOE2010.Location = new System.Drawing.Point(328, 5);
+            this.rbOE2010.Name = "rbOE2010";
+            this.rbOE2010.Size = new System.Drawing.Size(64, 17);
+            this.rbOE2010.TabIndex = 36;
+            this.rbOE2010.TabStop = true;
+            this.rbOE2010.Text = "OE2010";
+            this.rbOE2010.UseVisualStyleBackColor = true;
+            this.rbOE2010.CheckedChanged += new System.EventHandler(this.rbOE2010_CheckedChanged);
+            // 
+            // rbORIS
+            // 
+            this.rbORIS.AutoSize = true;
+            this.rbORIS.Location = new System.Drawing.Point(404, 5);
+            this.rbORIS.Name = "rbORIS";
+            this.rbORIS.Size = new System.Drawing.Size(281, 17);
+            this.rbORIS.TabIndex = 37;
+            this.rbORIS.Text = "ORIS (vícedenní zatím nejsou z ORISu podporovány)";
+            this.rbORIS.UseVisualStyleBackColor = true;
             // 
             // label21
             // 
@@ -729,6 +783,7 @@
             // 
             // buttonLoadCategoriesCeremony
             // 
+            this.buttonLoadCategoriesCeremony.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLoadCategoriesCeremony.Location = new System.Drawing.Point(562, 35);
             this.buttonLoadCategoriesCeremony.Name = "buttonLoadCategoriesCeremony";
             this.buttonLoadCategoriesCeremony.Size = new System.Drawing.Size(122, 23);
@@ -758,6 +813,7 @@
             // 
             // buttonDownloadEventInfo
             // 
+            this.buttonDownloadEventInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDownloadEventInfo.Location = new System.Drawing.Point(727, 35);
             this.buttonDownloadEventInfo.Name = "buttonDownloadEventInfo";
             this.buttonDownloadEventInfo.Size = new System.Drawing.Size(122, 23);
@@ -824,54 +880,13 @@
             // 
             // label18
             // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(690, 40);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(31, 13);
             this.label18.TabIndex = 31;
             this.label18.Text = "nebo";
-            // 
-            // rbOE2010
-            // 
-            this.rbOE2010.AutoSize = true;
-            this.rbOE2010.Checked = true;
-            this.rbOE2010.Location = new System.Drawing.Point(328, 5);
-            this.rbOE2010.Name = "rbOE2010";
-            this.rbOE2010.Size = new System.Drawing.Size(64, 17);
-            this.rbOE2010.TabIndex = 36;
-            this.rbOE2010.TabStop = true;
-            this.rbOE2010.Text = "OE2010";
-            this.rbOE2010.UseVisualStyleBackColor = true;
-            this.rbOE2010.CheckedChanged += new System.EventHandler(this.rbOE2010_CheckedChanged);
-            // 
-            // rbORIS
-            // 
-            this.rbORIS.AutoSize = true;
-            this.rbORIS.Location = new System.Drawing.Point(404, 5);
-            this.rbORIS.Name = "rbORIS";
-            this.rbORIS.Size = new System.Drawing.Size(281, 17);
-            this.rbORIS.TabIndex = 37;
-            this.rbORIS.Text = "ORIS (vícedenní zatím nejsou z ORISu podporovány)";
-            this.rbORIS.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label23);
-            this.panel1.Controls.Add(this.rbOE2010);
-            this.panel1.Controls.Add(this.rbORIS);
-            this.panel1.Location = new System.Drawing.Point(3, 106);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(727, 21);
-            this.panel1.TabIndex = 38;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(5, 7);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(199, 13);
-            this.label23.TabIndex = 38;
-            this.label23.Text = "Přihlášky (závodníci) jsou generované z ";
             // 
             // Form1
             // 
@@ -890,11 +905,13 @@
             this.Controls.Add(this.textBoxWorkingDir);
             this.Controls.Add(this.label2);
             this.Name = "Form1";
-            this.Text = "OEHelper by Maaca v 2019.3";
+            this.Text = "OEHelper by Maaca v 2021.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabPoplatky.ResumeLayout(false);
             this.tabPoplatky.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudRentSIFee)).EndInit();
             this.tabLog.ResumeLayout(false);
             this.tabLog.PerformLayout();
@@ -904,8 +921,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCeremonyPlaces)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLabels)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOrisID)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -989,6 +1004,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.RadioButton rbOE2010;
         private System.Windows.Forms.RadioButton rbORIS;
+        private System.Windows.Forms.CheckBox cbOrisMultiday;
     }
 }
 
